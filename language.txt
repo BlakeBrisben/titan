@@ -1,0 +1,15 @@
+types: num, string, fn, vector[]
+lines end in ;
+
+num var_num = 1;
+string var_string = "string";
+
+fn func_name() : return_type{}
+
+Probably added after other things
+vector<num> var_vector = {1, 2, 3}
+
+Keywords:
+return
+fn
+

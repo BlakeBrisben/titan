@@ -1,7 +1,4 @@
 #include <string>
 namespace lx {
-struct Lexer {
-    std::string input;
-};
-int test = 69;
+std::string getLine() { return ""; }
 } // namespace lx

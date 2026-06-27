@@ -1,4 +1,5 @@
 #include <string>
+#include <vector>
 
 enum TokenType {
     NUM,
@@ -22,10 +23,15 @@ struct Token {
     int col;
     std::string value;
 };
+
 namespace lx {
 struct Lexer {
-    std::string input;
+    std::vector<std::string> lines;
     int lineNum;
     int position;
 };
+
+std::vector<std::string> reader(std::string filename);
+
+Lexer init(std::string filename);
 } // namespace lx

@@ -1,4 +1,42 @@
 #include <string>
+#include <vector>
+#include <fstream>
 namespace lx {
-std::string getLine() { return ""; }
+
+struct Lexer {
+    std::vector<std::string> lines;
+    int lineNum;
+    int position;
+};
+
+std::vector<std::string> reader(std::string filename) {
+    std::vector<std::string> lines;
+    std::string line;
+
+    std::ifstream file(filename);
+
+    while(std::getline(file, line)) {
+        lines.push_back(line);
+    }
+
+    file.close();
+
+    return lines;
+}
+
+Lexer init(std::string filename) {
+    std::vector<std::string> lines = reader(filename);
+
+    if(lines.size() == 0) {
+        perror("File not found or empty");
+    }
+
+    Lexer lexer;
+    lexer.lines = lines;
+    lexer.lineNum = 0;
+    lexer.position = 0;
+
+    return lexer;
+}
+
 } // namespace lx

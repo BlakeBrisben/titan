@@ -19,19 +19,21 @@ enum TokenType {
 
 struct Token {
     TokenType type;
-    int lineNum;
-    int col;
+    size_t lineNum;
+    size_t col;
     std::string value;
 };
 
 namespace lx {
 struct Lexer {
     std::vector<std::string> lines;
-    int lineNum;
-    int position;
+    size_t lineNum;
+    size_t position;
 };
 
 std::vector<std::string> reader(std::string filename);
 
 Lexer init(std::string filename);
+
+Token readNext(Lexer l);
 } // namespace lx
